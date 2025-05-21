@@ -1,0 +1,156 @@
+/* 全局样式优化 */
+:root {
+  --main-color: #1e88e5;
+  --text-color: #333;
+  --bg-color: #fff;
+  --card-bg: #fff;
+  --hover-color: #1976d2;
+}
+
+/* 文章卡片样式 */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* 导航栏样式 */
+.navbar {
+  backdrop-filter: blur(10px);
+  background: rgba(232, 189, 189, 0.9);
+}
+
+/* 按钮样式 */
+.button {
+  background: var(--main-color);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: var(--hover-color);
+}
+
+/* 代码块样式 */
+pre {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 图片样式 */
+img {
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.02);
+}
+
+/* 链接样式 */
+a {
+  color: var(--main-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--hover-color);
+}
+
+/* 页脚样式 */
+.footer {
+  background: #f5f5f5;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+  }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* 评论区域样式 */
+.gt-container {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.gt-container .gt-header {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.gt-container .gt-comment {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s ease;
+}
+
+.gt-container .gt-comment:hover {
+  background-color: #f8f9fa;
+}
+
+.gt-container .gt-comment-content {
+  margin-top: 0.5rem;
+  color: var(--text-color);
+}
+
+.gt-container .gt-comment-body {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.gt-container .gt-btn {
+  background: var(--main-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.gt-container .gt-btn:hover {
+  background: var(--hover-color);
+}
+
+.gt-container .gt-user {
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+.gt-container .gt-meta {
+  color: #666;
+  font-size: 0.9rem;
+} 
