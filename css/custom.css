@@ -1,26 +1,69 @@
-/* 全局样式优化 */
+/* 全局变量 */
 :root {
   --main-color: #1e88e5;
   --text-color: #333;
   --bg-color: #fff;
-  --card-bg: #fff;
+  --card-bg: rgba(255, 255, 255, 0.9);
   --hover-color: #1976d2;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* 背景图片设置 */
+body {
+  background-image: url('/img/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* 毛玻璃效果容器 */
+#content-inner,
+#aside-content .card-widget,
+#site-title,
+#site-subtitle,
+#site-title a,
+#site-title a:hover,
+#site-title a:focus,
+#site-title a:active,
+#site-title a:visited,
+#site-title a:link,
+#site-title a:active,
+#site-title a:hover,
+#site-title a:focus,
+#site-title a:visited,
+#site-title a:link {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
 }
 
 /* 文章卡片样式 */
 .card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.45);
 }
 
 /* 导航栏样式 */
 .navbar {
+  background: var(--glass-bg);
   backdrop-filter: blur(10px);
-  background: rgba(232, 189, 189, 0.9);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
 }
 
 /* 按钮样式 */
@@ -29,23 +72,32 @@
   color: white;
   padding: 8px 16px;
   border-radius: 4px;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  border: none;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .button:hover {
   background: var(--hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* 代码块样式 */
 pre {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: var(--glass-shadow);
 }
 
 /* 图片样式 */
 img {
   border-radius: 8px;
   transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 img:hover {
@@ -55,29 +107,73 @@ img:hover {
 /* 链接样式 */
 a {
   color: var(--main-color);
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 a:hover {
   color: var(--hover-color);
+  text-decoration: none;
 }
 
 /* 页脚样式 */
 .footer {
-  background: #f5f5f5;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
   padding: 20px 0;
   margin-top: 40px;
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-  .container {
-    padding: 0 15px;
-  }
-  
-  .card {
-    margin-bottom: 20px;
-  }
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hover-color);
+}
+
+/* 文章内容样式 */
+.article-content {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: var(--glass-shadow);
+}
+
+/* 标签样式 */
+.tag-cloud a {
+  background: var(--glass-bg);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid var(--glass-border);
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin: 5px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.tag-cloud a:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glass-shadow);
 }
 
 /* 动画效果 */
@@ -94,6 +190,23 @@ a:hover {
 
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  #content-inner,
+  #aside-content .card-widget {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
 }
 
 /* 评论区域样式 */
